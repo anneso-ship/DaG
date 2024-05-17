@@ -1,0 +1,61 @@
+<nav class="navbar" style="background-color: rgb(0,255,240);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img width="100" margin-left="2" height="85" src="assets/image/Logo/Logo_black.png" alt="Logo"></a>
+        <div class="input-group" style="width:35%; ">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
+            <button class="btn btn-outline-secondary" type="button">Rechercher</button>
+        </div>
+        <div class="navbar-nav ms-auto">
+            <div class="dropdown" >
+                <select class="form-select" aria-label="Default select example"  [(ngModel)]="selectedPage" (ngModelChange)="navigateToPage()" style="margin-top:5px;">
+                    <option value="/agent-info-list">Liste des agents</option>
+                    <option value="/user-info-list">Liste des utilisateurs</option>
+                    <option value="/requests-agent">Demandes d'inscription des agents</option>
+                    <option value="3">Demandes d'inscription des utilisateurs</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="navbar-nav ms-auto">
+            <div class="row">
+                <div class="col-md-3">
+                    <a class="nav-link" href="#"><img src="assets/Symboles/settings.png" alt="Paramètres" width="50" height="50"></a>
+                </div>
+                <div class="col-md-3">
+                    <a class="nav-link" href="#"><img src="assets/Symboles/deconnexion.png" alt="Déconnexion" width="90" height="50"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<br>
+<h3 style="margin-left: 30px; ">Demande d'inscription des agents</h3>
+<br><br>
+    <table class="table table-striped" *ngFor="let ag of agent$ | async " style="border: 3px solid black; margin-right:15%; margin-left:15%;width:70%;" >
+
+        <td >
+            <br>
+            <strong>Nom :</strong> {{ag.name}} <br>
+            <strong>Prénom :</strong> {{ag.firstName}}
+            <br>
+        </td>
+        <td >
+            <br>
+            <strong>Adresse mail :</strong> {{ag.email}}<br>
+            <strong>Numéro de Téléphone</strong> {{ag.phoneNumber}}
+            <br>
+        </td>
+        <td >
+            <br>
+            <button type="button" class="btn btn-primary btn-lg">Valider inscription</button>
+            <br>
+        </td>
+        <td class="col-md-3">
+            <br>
+            <button type="button" class="btn btn-secondary btn-lg">Rejetter incription</button>
+            <br>
+        </td>
+
+    </table>
+    <br><br>

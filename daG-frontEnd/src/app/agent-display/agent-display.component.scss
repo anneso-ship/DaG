@@ -1,0 +1,33 @@
+table{
+    margin-top: 80px;
+    border-collapse: collapse;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border : none;
+    width: 90%;
+    font-size: 18px;
+
+}
+.firstLine{
+    background-color: black;
+    font-size: 20px;
+    color: rgb(0,255,255);
+    border: 1px solid rgb(0,255,255);
+    td{
+          border: 1px solid rgb(0,255,255);
+    }
+}
+th, td{
+
+  padding: 15px;
+
+}
+
+tr:hover{
+    background-color: #ebebeb;
+    td{
+        border: 1px solid rgb(255,255,255);
+
+    }
+}
+

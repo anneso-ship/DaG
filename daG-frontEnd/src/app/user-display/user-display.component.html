@@ -1,0 +1,55 @@
+
+<nav class="navbar" style="background-color: rgb(0,255,240);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img width="100" margin-left="2" height="85" src="assets/image/Logo/Logo_black.png" alt="Logo"></a>
+        <div class="input-group" style="width:35%; ">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
+            <button class="btn btn-outline-secondary" type="button">Rechercher</button>
+        </div>
+        <div class="navbar-nav ms-auto">
+            <div class="dropdown" >
+                <select class="form-select" aria-label="Default select example"  [(ngModel)]="selectedPage" (ngModelChange)="navigateToPage()" style="margin-top:5px;">
+                    <option value="/agent-info-list">Liste des agents</option>
+                    <option value="/user-info-list">Liste des utilisateurs</option>
+                    <option value="2">Demandes d'inscription des agents</option>
+                    <option value="3">Demandes d'inscription des utilisateurs</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="navbar-nav ms-auto">
+            <div class="row">
+                <div class="col-md-3">
+                    <a class="nav-link" href="#"><img src="assets/Symboles/settings.png" alt="Paramètres" width="50" height="50"></a>
+                </div>
+                <div class="col-md-3">
+                    <a class="nav-link" href="#"><img src="assets/Symboles/deconnexion.png" alt="Déconnexion" width="90" height="50"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<table>
+    <thead class="firstLine">
+    <td>Numéro d'identification</td>
+    <td>Nom</td>
+    <td>Prénom</td>
+    <td>Mail</td>
+    <td>Numéro de téléphone</td>
+    <td>Role</td>
+    <td>Statut de la demande</td>
+    </thead>
+    <tr *ngFor="let ur of user$ | async "  >
+        <td>{{ur.identifier}}</td>
+        <td>{{ur.name}}</td>
+        <td>{{ur.firstName}}</td>
+        <td>{{ur.email}}</td>
+        <td>{{ur.phoneNumber}}</td>
+        <td><i><strong>{{ur.role}}</strong></i></td>
+        <td>{{ur.requestProcessStatus}}</td>
+    </tr>
+</table>
