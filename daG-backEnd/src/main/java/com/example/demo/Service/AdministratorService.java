@@ -26,14 +26,12 @@ public class AdministratorService {
     }
 
     public Administrator loginAdmin(Administrator administrator){
-        //Optional<Administrator> admin = administratorRepository.findById((long) administrator.getId());
-        Optional<Administrator> admin = administratorRepository.findByIdentifier(administrator.getIdentifier());
-
+        Optional<Administrator> admin = administratorRepository.findByEmail(administrator.getEmail());
         if (admin.isEmpty()) {
             throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED);
         } else {
             if ( encoder.matches(administrator.getPassword(),admin.get().getPassword())
-                    && administrator.getIdentifier().equals(admin.get().getIdentifier()) ) {
+                    && administrator.getEmail().equals(admin.get().getEmail()) ) {
                 return admin.get();
             } else {
                 throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED);

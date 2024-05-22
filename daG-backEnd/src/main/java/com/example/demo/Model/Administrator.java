@@ -1,35 +1,30 @@
 package com.example.demo.Model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name="administrators")
-public class Administrator {
+public class Administrator extends UsersModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    public String name;
-    public String firstName;
-    public String identifier;
-    public String password;
-    public String phoneNumber;
-    public String role;
+    private Date dateCreationCompte;
+    private Date dernierLogin;
 
     public Administrator() {
+
     }
 
-    public Administrator(String name, String firstName,
-                         String identifier, String password,
-                         String phoneNumber, String role) {
-        this.name = name;
-        this.firstName = firstName;
-        this.identifier = identifier;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.role = role;
+    public Administrator(String name, String firstName, String email, String phoneNumber, String password, String role, Date dateCreationCompte, Date dernierLogin) {
+        super(name, firstName, email, phoneNumber, password, role);
+        this.dateCreationCompte = dateCreationCompte;
+        this.dernierLogin = dernierLogin;
     }
+
 
     public int getId() {
         return id;
@@ -39,51 +34,21 @@ public class Administrator {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Date getDateCreationCompte() {
+        return dateCreationCompte;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDateCreationCompte(Date dateCreationCompte) {
+        this.dateCreationCompte = dateCreationCompte;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Date getDernierLogin() {
+        return dernierLogin;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setDernierLogin(Date dernierLogin) {
+        this.dernierLogin = dernierLogin;
     }
 
-    public String getIdentifier() {
-        return identifier;
-    }
 
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 }
