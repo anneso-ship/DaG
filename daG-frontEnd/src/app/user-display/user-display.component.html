@@ -35,21 +35,20 @@
 
 <table>
     <thead class="firstLine">
-    <td>Numéro d'identification</td>
     <td>Nom</td>
     <td>Prénom</td>
     <td>Mail</td>
     <td>Numéro de téléphone</td>
     <td>Role</td>
-    <td>Statut de la demande</td>
+    <td>Genre</td>
     </thead>
     <tr *ngFor="let ur of user$ | async "  >
-        <td>{{ur.identifier}}</td>
+        
         <td>{{ur.name}}</td>
         <td>{{ur.firstName}}</td>
         <td>{{ur.email}}</td>
         <td>{{ur.phoneNumber}}</td>
         <td><i><strong>{{ur.role}}</strong></i></td>
-        <td>{{ur.requestProcessStatus}}</td>
+        <td>{{ur.gender}}</td>
     </tr>
 </table>

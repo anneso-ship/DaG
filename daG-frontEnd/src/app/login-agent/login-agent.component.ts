@@ -23,7 +23,7 @@ export class LoginAgentComponent implements OnInit {
   }
 
     login_agent(loginForm:any){
-          this.agentService.loginAgent(this.email,this.identifier,this.password).subscribe(
+          this.agentService.loginAgent(this.email,this.password).subscribe(
             (agent)=>{
                 this.router.navigateByUrl("birthCertificateDisplay")
             },

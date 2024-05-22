@@ -19,12 +19,11 @@ export class AgentService {
         return this.http.get<Agent[]>('http://localhost:8080/agent/getRequest');
     }
 
-    loginAgent( email:string , identifier:string,password: string){
+    loginAgent( email:string,password: string){
 
         let ConnectiionAgentAttempt = {
              email:email,
-             password: password,
-             identifier: identifier
+             password: password
         }
         console.log(ConnectiionAgentAttempt);
         return this.http.post<any>(`http://localhost:8080/agent/authenticate`,ConnectiionAgentAttempt);
