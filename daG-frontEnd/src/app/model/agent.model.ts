@@ -2,10 +2,10 @@ export class Agent{
     id?:number;
     name:string;
     firstName:string;
-    identifier:string;
-    password:string;
     email:string;
     phoneNumber:string;
+    password:string;
     role:string;
-    statusProcess:string;
+    departement:string;
+    dateEmbauche: Date;
 }

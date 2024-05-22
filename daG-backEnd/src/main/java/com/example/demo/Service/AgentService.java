@@ -62,8 +62,7 @@ public class AgentService {
             throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED);
         } else {
             if ( encoder.matches(agent.getPassword(),agentDb.get().getPassword())
-                    && agent.getEmail().equals(agentDb.get().getEmail()) &&
-                    agent.getIdentifier().equals(agentDb.get().getIdentifier())) {
+                    && agent.getEmail().equals(agentDb.get().getEmail()) ) {
                 return agentDb.get();
             } else {
                 throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED);
@@ -84,7 +83,7 @@ public class AgentService {
 
         // filtrer les agents dont le numéro identifier est null
         List<Agent> filteredAgents = allAgents.stream()
-                .filter(agent -> agent.getIdentifier() == null)
+                .filter(agent -> agent.getEmail() == null)
                 .collect(Collectors.toList());
 
         return filteredAgents;

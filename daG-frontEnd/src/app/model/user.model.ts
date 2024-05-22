@@ -2,11 +2,10 @@ export class User{
     id?:number;
         name:string;
         firstName:string;
-        identifier:string;
-        password:string;
         email:string;
         phoneNumber:string;
+        password:string;
         role:string;
-        requestProcessStatus:string;
-
+        gender:string;
+        birthDate: Date;
 }
