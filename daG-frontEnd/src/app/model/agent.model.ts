@@ -1,3 +1,5 @@
+import { Procedure } from './procedure';
+
 export class Agent{
     id?:number;
     name:string;
@@ -8,4 +10,5 @@ export class Agent{
     role:string;
     departement:string;
     dateEmbauche: Date;
+    proceduresAssignees?: Procedure[];
 }

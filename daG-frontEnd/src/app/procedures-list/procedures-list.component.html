@@ -1,0 +1,58 @@
+
+<input type="text" class="form-control" placeholder="Filtre de Recherche ...." aria-label="Recipient's username with two button addons">
+
+<div *ngIf="selectedProcedure" class="procedure-details">
+    
+    <br><h2>Informations sur la procédure</h2><br><br>
+    
+    <p><strong> N° identifiant : </strong> {{ selectedProcedure.id }}</p>
+    <p><strong> Type : </strong> {{ selectedProcedure.type }}</p>
+    <p><strong> Etat d'avancement : </strong> {{ selectedProcedure.status }}</p>
+    <p><strong> Date de demande : </strong> {{ selectedProcedure.dateDemande | date }}</p>
+    <p><strong> Documents Scannés : </strong>{{ selectedProcedure.documentsScannes.join(', ') }}</p>
+    <br><br>
+    <h4>Utilisateur à l'origine de la procédure</h4><br>
+    <ul>
+        <li>
+            <p>         <strong>Nom :</strong> {{selectedProcedure.demandeur.name}}</p>
+            <p>         <strong>Prénom : </strong>{{ selectedProcedure.demandeur.firstName }}</p>
+            <p>         <strong>Adresse mail : </strong>{{ selectedProcedure.demandeur.email | date }}</p>
+            <p>         <strong>Numéro de téléphone : </strong>{{ selectedProcedure.demandeur.phoneNumber }}</p>
+            <p>         <strong>Date de naissance :</strong> {{selectedProcedure.demandeur.birthDate}}</p>
+            <p>         <strong>Genre : </strong>{{ selectedProcedure.demandeur.gender }}</p>
+        </li>
+    </ul>
+    <br><h4>Agent assigné</h4><br>
+    <ul>
+        <li>
+            <p>         <strong>Nom :</strong> {{selectedProcedure.agent.name}}</p>
+            <p>         <strong>Prénom : </strong>{{ selectedProcedure.agent.firstName }}</p>
+            <p>         <strong>Adresse mail : </strong>{{ selectedProcedure.agent.email }}</p>
+            <p>         <strong>Numéro de téléphone : </strong>{{ selectedProcedure.agent.phoneNumber }}</p>
+            <p>         <strong>Date d'embauche :</strong> {{selectedProcedure.agent.dateEmbauche | date}}</p>
+            <p>         <strong>Département : </strong>{{ selectedProcedure.agent.departement}}</p>
+        </li>
+    </ul>
+    
+    <button class="btn btn-outline-danger" style="width:19.5%; margin-left: 80%;margin-right: 0.5%;font-size: 20px;" (click)="onBack()">Masquer</button>
+</div>
+
+<table>
+    <thead class="firstLine">
+        <td>N° identifiant</td>
+        <td>Type</td>
+        <td>Date de demande</td>
+        <td>Etat d'avancement</td>
+        <td></td>
+    </thead>
+    <tr *ngFor="let process of procedure$ | async "  >
+        <td>{{process.id}}</td>
+        <td>{{process.type}}</td>
+        <td>{{process.dateDemande}}</td>
+        <td><strong style="color:red;"><i>{{process.status}}</i></strong></td>
+        <td><button class="btn btn-outline-danger" style=" display: block; margin: 0 auto;text-align: center;font-size: 20px;" class="btn btn-outline-primary" (click)="onViewProcedure(process)">Consulter informations</button></td>
+    </tr>
+  
+</table>
+
+<br><br><br>

@@ -27,7 +27,7 @@ export class LoginAdministratorComponent implements OnInit {
    login(loginForm:any){
         this.auth.loginAdmin(this.email,this.password).subscribe(
           (agent)=>{
-              this.router.navigateByUrl("agent-info-list")
+              this.router.navigateByUrl("Admin-Dashboard")
           },
           (error)=>{
               this.error=true;

@@ -14,6 +14,10 @@ import { LoginAgentComponent } from './login-agent/login-agent.component';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { RegisterAgentComponent } from './register-agent/register-agent.component';
 import { ListAgentRequestComponent } from './list-agent-request/list-agent-request.component';
+import { PanelAdministratorComponent } from './panel-administrator/panel-administrator.component';
+import { AgentPanelComponent } from './agent-panel/agent-panel.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
+import { ProceduresListComponent } from './procedures-list/procedures-list.component';
 
 const routes: Routes = [
   {path: '', component:WelcomeComponent},
@@ -29,7 +33,11 @@ const routes: Routes = [
   {path: 'officer-login', component:LoginAgentComponent},
   {path: 'register-administrator', component:RegisterAdminComponent},
   {path: 'register-agent', component:RegisterAgentComponent},
-  {path: 'requests-agent', component:ListAgentRequestComponent}
+  {path: 'requests-agent', component:ListAgentRequestComponent},
+  {path: 'Admin-Dashboard', component:PanelAdministratorComponent},
+  {path: 'Moderator-Dashboard', component:AgentPanelComponent},
+  {path: 'User-Dashboard', component:UserPanelComponent},
+  {path:'ProceduresDisplay', component:ProceduresListComponent } 
 ];
 
 @NgModule({

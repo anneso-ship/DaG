@@ -1,7 +1,11 @@
 package com.example.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -12,17 +16,31 @@ public class User extends UsersModel{
     private Long id;
 
     private char gender;
+
+    @Temporal(TemporalType.DATE)
     Date birthDate;
+
+    @OneToMany(mappedBy = "demandeur", cascade = CascadeType.ALL, fetch = FetchType.LAZY) // Chargement paresseux
+    @JsonManagedReference
+    private List<Procedure> procedures;
+
+    /*
+
+    * La classe User a une relation One-to-Many avec Procedure pour représenter
+    * les procédures demandées par l'utilisateur.
+
+    * */
 
     public User(){}
 
     public User(String name, String firstName,
                 String email, String phoneNumber,
-                String password, String role,
-                char gender, Date birthDate) {
+                String password, String role, char gender,
+                Date birthDate, List<Procedure> procedures) {
         super(name, firstName, email, phoneNumber, password, role);
         this.gender = gender;
         this.birthDate = birthDate;
+        this.procedures = procedures;
     }
 
     public Long getId() {
@@ -48,4 +66,15 @@ public class User extends UsersModel{
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+    public List<Procedure> getProcedures() {
+        return procedures;
+    }
+
+    public void setProcedures(List<Procedure> procedures) {
+        this.procedures = procedures;
+    }
+
+
+
 }

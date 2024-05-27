@@ -3,7 +3,11 @@ package com.example.demo.Service;
 import com.example.demo.Model.Administrator;
 import com.example.demo.Model.Agent;
 import com.example.demo.Model.BirthCertificate;
+import com.example.demo.Model.Procedure;
 import com.example.demo.Repository.AgentRepository;
+import com.example.demo.Repository.ProcedureRepository;
+import com.example.demo.exceptions.AgentNotFoundException;
+import com.example.demo.exceptions.ProcedureNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -27,6 +31,9 @@ public class AgentService {
 
     @Autowired
     public AgentRepository agentRepository;
+
+    @Autowired
+    public ProcedureRepository procedureRepository;
 
     String Subject = "Inscription en attente";
     String body = "";
@@ -52,8 +59,41 @@ public class AgentService {
 
     }
 
-    public void acceptRequestAgentRegistration(){
+    public void AssignProceduretoAnAgent(Long agentId, Long procedureId) {
+        // Récupérer l'agent depuis la base de données
+        Optional<Agent> agentOptional = agentRepository.findById(agentId);
+        if (agentOptional.isPresent()) {
+            Agent agent = agentOptional.get();
 
+            // Récupérer la procédure depuis la base de données
+            Optional<Procedure> procedureOptional = procedureRepository.findById(procedureId);
+            if (procedureOptional.isPresent()) {
+                Procedure procedure = procedureOptional.get();
+
+                // Assigner la procédure à l'agent
+                procedure.setAgent(agent);
+                procedureRepository.save(procedure);
+            } else {
+                throw new ProcedureNotFoundException("Procédure non trouvée avec l'ID : " + procedureId);
+            }
+        } else {
+            throw new AgentNotFoundException("Agent non trouvé avec l'ID : " + agentId);
+        }
+    }
+
+    public List<Procedure> getProceduresAssigned(Long id) {
+        // Récupérer l'agent depuis la base de données
+        Optional<Agent> agentOptional = agentRepository.findById(id);
+        if (agentOptional.isPresent()) {
+            Agent agent = agentOptional.get();
+            return agent.getProceduresAssignees();
+        } else {
+            throw new AgentNotFoundException("Agent non trouvé avec l'ID : " + id);
+        }
+    }
+
+    public Optional<Agent> getAgentById(Long id){
+        return this.agentRepository.findById(id);
     }
 
     public Agent loginAgent(Agent agent){

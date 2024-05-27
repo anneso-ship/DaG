@@ -1,0 +1,32 @@
+
+
+<div class="row">
+    <div class="col-md-3" >
+        <img class="profilIocn" src="/assets/profil.png" />
+        <br>
+        <p>Anne Sophie Bamoni Loubamono</p>
+      
+        <br>
+    <hr>
+    <br>
+        <ul>
+            <li><a (click)="activeComponent = 'birthCertificateDisplay'" routerLinkActive="active">Actes de naissances</a></li>
+            <li>Procédures assignées</li>
+            
+            <li>Mon profil</li>
+            <li>Déconnexion</li>
+            
+
+          </ul>
+    </div>
+    <div class="col-md-9">
+        
+     
+        <app-birth-certificate-list *ngIf="activeComponent === 'birthCertificateDisplay'"></app-birth-certificate-list>
+        
+       
+    </div>
+    
+</div>
+
+

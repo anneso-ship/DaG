@@ -23,6 +23,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { RegisterAgentComponent } from './register-agent/register-agent.component';
 import { ListAgentRequestComponent } from './list-agent-request/list-agent-request.component';
+import { PanelAdministratorComponent } from './panel-administrator/panel-administrator.component';
+import { AgentPanelComponent } from './agent-panel/agent-panel.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
+import { ProceduresListComponent } from './procedures-list/procedures-list.component';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +46,11 @@ import { ListAgentRequestComponent } from './list-agent-request/list-agent-reque
     LoginAgentComponent,
     RegisterAdminComponent,
     RegisterAgentComponent,
-    ListAgentRequestComponent
+    ListAgentRequestComponent,
+    PanelAdministratorComponent,
+    AgentPanelComponent,
+    UserPanelComponent,
+    ProceduresListComponent
 
   ],
   imports: [

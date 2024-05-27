@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { User } from '../model/user.model';
 import { UserService } from '../services/user.service';
 import { Observable } from 'rxjs';
@@ -13,7 +13,11 @@ export class UserDisplayComponent implements OnInit {
 
      user$! : Observable<User[]>;
 
+     selectedUser: User | null = null;
+
       selectedPage: string;
+
+      @ViewChild('agentDetails') agentDetails!: ElementRef;
 
   constructor(private userService: UserService,
   private router : Router) { }
@@ -22,18 +26,18 @@ export class UserDisplayComponent implements OnInit {
           this.user$=this.userService.getAllUsers();
   }
 
-   onViewUser() {
-                this.router.navigateByUrl(`user-info-list`);
-          }
+  onViewUser(user: User): void {
+    this.selectedUser = user;
+    setTimeout(() => {
+      this.agentDetails.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 0);
+  }
 
-          onViewAgent() {
-                        this.router.navigateByUrl(`agent-info-list`);
-                  }
+  onBack(): void {
+    this.selectedUser = null;
+  }
 
 
-             navigateToPage() {
-               this.router.navigate([this.selectedPage]);
-             }
 
 
 }

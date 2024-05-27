@@ -1,7 +1,11 @@
 package com.example.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="agents")
@@ -12,17 +16,36 @@ public class Agent extends UsersModel{
     private Long id;
 
     String departement;
+
+    @Temporal(TemporalType.DATE)
     Date dateEmbauche;
+
+    @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<Procedure> proceduresAssignees;
+
+    /*
+         relation One-to-Many avec Procedure pour représenter les procédures assignées à l'agent
+    */
 
     public Agent(){}
 
-    public Agent(String name, String firstName,
-                 String email, String phoneNumber,
-                 String password, String role,
-                 String departement, Date dateEmbauche) {
+    public Agent(String name, String firstName, String email,
+                 String phoneNumber, String password, String role,
+                 String departement, Date dateEmbauche,
+                 List<Procedure> proceduresAssignees) {
         super(name, firstName, email, phoneNumber, password, role);
         this.departement = departement;
         this.dateEmbauche = dateEmbauche;
+        this.proceduresAssignees = proceduresAssignees;
+    }
+
+    public List<Procedure> getProceduresAssignees() {
+        return proceduresAssignees;
+    }
+
+    public void setProceduresAssignees(List<Procedure> proceduresAssignees) {
+        this.proceduresAssignees = proceduresAssignees;
     }
 
     public Long getId() {

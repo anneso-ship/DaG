@@ -1,3 +1,5 @@
+import { Procedure } from './procedure';
+
 export class User{
     id?:number;
         name:string;
@@ -8,4 +10,5 @@ export class User{
         role:string;
         gender:string;
         birthDate: Date;
+        procedures?: Procedure[];
 }

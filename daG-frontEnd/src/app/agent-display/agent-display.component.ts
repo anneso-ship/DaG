@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input, ElementRef, ViewChild} from '@angular/core';
 import { Agent } from '../model/agent.model';
 import { AgentService } from '../services/agent.service';
 
@@ -20,35 +20,30 @@ export class AgentDisplayComponent implements OnInit {
     @Input()
     public agents: Agent[] = [];
 
-    selectedPage: string;
-
+    selectedAgent: Agent | null = null;
 
     agent$! : Observable<Agent[]>;
 
+    @ViewChild('agentDetails') agentDetails!: ElementRef;
 
-  constructor(private agentService: AgentService,
-  private router : Router) { }
+
+  constructor(private agentService: AgentService) { }
 
   ngOnInit(): void {
         this.agent$=this.agentService.getAllAgent();
 
-
-
   }
 
-  navigateToPage() {
-    this.router.navigate([this.selectedPage]);
+  onViewAgent(agent: Agent): void {
+    this.selectedAgent = agent;
+    setTimeout(() => {
+      this.agentDetails.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 0);
   }
 
+  onBack(): void {
+    this.selectedAgent = null;
+  }
 
-
-
-  onViewUser() {
-              this.router.navigateByUrl(`user-info-list`);
-        }
-
-        onViewAgent() {
-                      this.router.navigateByUrl(`agent-info-list`);
-                }
 
 }
