@@ -4,6 +4,7 @@ import com.example.demo.Model.*;
 import com.example.demo.Repository.*;
 import com.example.demo.Service.AdministratorService;
 import com.example.demo.Service.AgentService;
+import com.example.demo.Service.ProcedureService;
 import com.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -29,6 +30,8 @@ public class InitData implements CommandLineRunner {
     @Autowired
     public AdministratorService administratorService;
 
+    @Autowired
+    public ProcedureService procedureService;
 
     @Autowired
     AgentService agentService;
@@ -60,11 +63,9 @@ public class InitData implements CommandLineRunner {
     }
 
 
-
-
-
     @Override
     public void run(String... args) throws Exception {
+
 
     }
 

@@ -1,0 +1,72 @@
+
+<div class="analytics">
+
+    <div class="process_data">
+            <br><p class="title_analytics">STATISTIQUES PROCEDURES</p>
+            <p style="font-size: 95px; font-weight:bold;text-align: center; color:#80d0d0;">{{totalProcedures}}</p>
+
+            <div class="row" style="width: 100%;  text-align: center; font-size:20px;">
+
+                <div class="col-md-2">
+                    <p style=" font-size: 20px;">En attente :</p> 
+                    <p style="font-weight: bold; font-size: 30px;">{{totalProcedures_en_attente}}</p> 
+                </div>
+
+                <div class="col-md-2">
+                    <p style=" font-size: 20px;">En cours :</p> 
+                    <p style="font-weight: bold; font-size: 30px;">{{totalProcedures_en_cours}}</p>
+                </div>
+
+                <div class="col-md-2">
+                    <p style=" font-size: 20px;">Terminée :</p>
+                    <p style="font-weight: bold; font-size: 30px;"> {{totalProcedures_terminee}}</p>
+                </div>
+
+                <div class="col-md-2">
+                    <p style=" font-size: 20px;">Rejetée :</p> 
+                    <p style="font-weight: bold; font-size: 30px;">{{totalProcedures_rejetee}}</p>
+                </div>
+
+                <div class="col-md-2">
+                    <p style=" font-size: 20px;">Assignée(s) :</p>
+                    <p style="font-weight: bold; font-size: 30px;"> {{totalProcedures_assigned}}</p>
+                </div>
+
+                <div class="col-md-2">
+                    <p style=" font-size: 20px;">Non Assignée(s) :</p>
+                    <p style="font-weight: bold; font-size: 30px;"> {{totalProcedures_unassigned}}</p>
+                </div>
+            </div>
+            <br>
+    </div>
+
+    <div class="row">
+        <div style="border: 1px solid #26c4ec;" class="col-md-5">
+            <br><p class="title_analytics">STATISTIQUES AGENT</p> 
+                    <p style="font-size: 95px; font-weight:bold;text-align: center; color:blue;">{{ totalAgents }}</p>
+                     
+                <table style="width: 97%; margin-left: 1.5%; margin-left: 1.5%;" [cellPadding]="5" [cellSpacing]="5">
+                    <tr>
+                        <th><p class="data" style="color: green">x agent(s) connecté(s)</p></th>
+                        <th><p class="data" style="color: red; text-align: right;">x agent(s) non connecté(s)</p></th>
+                    </tr>
+                </table>
+                
+        </div>
+        <div class="col-md-5">
+            <br><p class="title_analytics">STATISTIQUES UTILISATEUR</p>
+                <p style="font-size: 95px; font-weight:bold;text-align: center; color:#6c0277;">{{totalUsers}}</p>
+                <table style="width: 97%; margin-left: 1.5%; margin-left: 1.5%;" [cellPadding]="5" [cellSpacing]="5">
+                    <tr>
+                        <th><p class="data" style="color: green">x utilisateur(s) connecté(s)</p></th>
+                        <th><p class="data" style="color: red; text-align: right;">x utilisateur(s) utilisateur connecté(s)</p></th>
+                    </tr>
+                </table>
+        </div>
+    </div>
+    
+    <br>
+
+</div>
+
+<br><br>

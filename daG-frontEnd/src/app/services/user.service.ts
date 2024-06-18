@@ -15,5 +15,10 @@ export class UserService {
            return this.http.get<User[]>('http://localhost:8080/users/get_users_details');
       }
 
+      
+      // Obtenir le nombre total d'utilisateurs
+      getTotalUsers(): Observable<number> {
+        return this.http.get<number>('http://localhost:8080/users/count');
+      }
 
 }

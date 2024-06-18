@@ -16,6 +16,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import com.example.demo.Service.EmailSender;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -59,6 +60,10 @@ public class AgentService {
 
     }
 
+    public long getTotalAgents() {
+        return agentRepository.count();
+    }
+
     public void AssignProceduretoAnAgent(Long agentId, Long procedureId) {
         // Récupérer l'agent depuis la base de données
         Optional<Agent> agentOptional = agentRepository.findById(agentId);
@@ -72,6 +77,7 @@ public class AgentService {
 
                 // Assigner la procédure à l'agent
                 procedure.setAgent(agent);
+                procedure.setDateAssignation(new Date());
                 procedureRepository.save(procedure);
             } else {
                 throw new ProcedureNotFoundException("Procédure non trouvée avec l'ID : " + procedureId);

@@ -20,11 +20,18 @@ public class Procedure {
 
     private String type;
 
+    private String description;
+
     @Temporal(TemporalType.DATE)
     private Date dateDemande;
 
 
+    @Temporal(TemporalType.DATE)
+    private Date dateAssignation;
+
     private String status;
+
+    private String code;
 
     @ManyToOne(fetch = FetchType.EAGER) // Chargement explicite
     @JoinColumn(name = "demandeur_id", nullable = false)
@@ -48,13 +55,16 @@ public class Procedure {
     public Procedure() {
     }
 
-    public Procedure(String type, Date dateDemande,
-                     String status, User demandeur,
-                     Agent agent,
-                     List<String> documentsScannes) {
+    public Procedure(String type, String description,
+                     Date dateDemande,
+                     Date dateAssignation, String status,
+                     String number, User demandeur,
+                     Agent agent,List<String> documentsScannes) {
         this.type = type;
+        this.description = description;
         this.dateDemande = dateDemande;
         this.status = status;
+        this.code = number;
         this.demandeur = demandeur;
         this.agent = agent;
         this.documentsScannes = documentsScannes;
@@ -115,5 +125,30 @@ public class Procedure {
 
     public void setAgent(Agent agent) {
         this.agent = agent;
+    }
+
+
+    public Date getDateAssignation() {
+        return dateAssignation;
+    }
+
+    public void setDateAssignation(Date dateAssignation) {
+        this.dateAssignation = dateAssignation;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

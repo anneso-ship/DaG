@@ -13,19 +13,23 @@
             <li><a (click)="activeComponent = 'user-info-list'" routerLinkActive="active">Liste des Utilisateurs</a></li>
             <li><a (click)="activeComponent='ProceduresDisplay'" routerLinkActive="active">Liste des procédures</a></li>
             <li><a (click)="activeComponent='birthCertificateDisplay'" routerLinkActive="active">Liste des actes de naissances</a></li>
-            <li>Assignation procédures</li>
+            <li><a (click)="activeComponent = 'Procedure-Assigned'" routerLinkActive="active">Assignation procédures</a></li>
+            <li><a (click)="activeComponent = 'stats'" routerLinkActive="active">Statistiques</a></li>
             <li>Mon profil</li>
             <li>Déconnexion</li>
             
 
           </ul>
+
+          <br><br><br>
     </div>
     <div class="col-md-9">
         <app-agent-display *ngIf="activeComponent === 'agent-info-list'"></app-agent-display>
         <app-user-display *ngIf="activeComponent === 'user-info-list'"></app-user-display>
         <app-procedures-list *ngIf="activeComponent === 'ProceduresDisplay'"></app-procedures-list>
         <app-birth-certificate-list *ngIf="activeComponent === 'birthCertificateDisplay'"></app-birth-certificate-list>
-       
+        <app-procedures-assigned *ngIf="activeComponent === 'Procedure-Assigned'"></app-procedures-assigned>
+        <app-analytics *ngIf="activeComponent === 'stats'"></app-analytics>
     </div>
     
 </div>

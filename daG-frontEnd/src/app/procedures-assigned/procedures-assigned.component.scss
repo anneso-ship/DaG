@@ -1,0 +1,94 @@
+.container {
+    padding: 2em;
+}
+
+table {
+    margin-top: 4%;
+    width: 85%;
+    margin-left: 7.5%;
+    margin-bottom: 2em;
+    font-size: 22px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: white;
+    
+}
+
+table, th, td {
+    border: 3px solid white;
+}
+
+th, td {
+    padding: 0.5em;
+    text-align: left;
+}
+
+th {
+    background-color: #615297;
+}
+tr:hover{
+    background-color: #ebebeb;
+}
+
+
+
+form {
+    background-color: white;
+    padding: 3em;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10%;
+    font-size: 25px;
+}
+
+
+form select, form button {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+.messages {
+    margin-bottom: 2em;
+}
+
+.message {
+    padding: 1em;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+h3{
+    text-align: center;
+}
+
+button{
+    margin-top: 4.5%;
+}
+.actions-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions-cell button {
+    margin: 0 0.5em;
+    font-size: 25px;
+}
+select{  font-size: 25px;}
+
+h2{text-align: center;}
+
+h4{
+    margin-top: 15px;
+}

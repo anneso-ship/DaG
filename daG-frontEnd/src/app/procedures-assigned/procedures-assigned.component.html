@@ -1,0 +1,71 @@
+<div class="container">
+    <br>
+    <h2>Panneau d'assignation des procédures</h2>
+    <br>
+    <div class="messages">
+        <!-- Messages de succès ou d'erreur seront affichés ici -->
+    </div>
+    <br>
+
+    <h4>Tableau d'assignations actuelles :</h4>
+
+    <br>
+
+    <table class="table-responsive">
+        <thead>
+            <tr style="color:white;">
+                <th>N° identifiant</th>
+                <th>Type</th>
+                <th>Agent</th>
+                <!--<th>Date de demande</th>-->
+                <th>Date d'Assignation</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <!--<tr *ngFor="let moderator of assignedAgents">
+                <ng-container *ngFor="let procedure of moderator.proceduresAssignees">
+                    <td>{{ procedure.type }}</td>
+                    <td>{{ moderator.name }} {{ moderator.firstName }}</td>
+                    <td>{{ procedure.dateDemande | date }}</td>
+                    <td>{{ procedure.dateAssignation | date }}</td>
+                    <td class="actions-cell">
+                        <button class="btn btn-info">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </ng-container>
+            </tr>-->
+
+            <tr *ngFor="let assignment of assignedAgents">
+                <td>{{ assignment.procedure.code }}</td>
+                <td>{{ assignment.procedure.type }}</td>
+                <td>{{ assignment.agent.name }} {{ assignment.agent.firstName }}</td>
+                <!--<td>{{ assignment.procedure.dateDemande | date }}</td>-->
+                <td>{{ assignment.procedure.dateAssignation | date }}</td>
+             
+            </tr>
+        </tbody>
+    </table>
+
+    <form [formGroup]="assignForm" (ngSubmit)="onSubmit()">
+        <h3>Formulaire d'Assignation</h3>
+        <br>
+        <select class="form-select" id="procedure" name="procedure" formControlName="procedure">
+            <option selected>Sélectionner une Procédure :</option>
+            <option *ngFor="let procedure of procedures$ | async" [value]="procedure.id">
+                {{ procedure.code }}   
+            </option>
+        </select>
+        <br>
+        <select class="form-select" id="agent" name="agent" formControlName="agent">
+            <option selected>Sélectionner un Agent :</option>
+            <option *ngFor="let agent of agents$ | async" [value]="agent.id">
+                {{ agent.id }}   {{ agent.name }} {{ agent.firstName }}
+            </option>
+        </select>
+        <button style="  font-size: 25px;" class="btn btn-primary" type="submit">Assigner</button>
+    </form>
+ 
+</div>
+
+<br><br><br>

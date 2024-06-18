@@ -29,7 +29,8 @@ public class AgentController {
     }
 
     @PostMapping(value="assignation_agent_to_process/{agentId}/{procedureId}")
-    public ResponseEntity<String> assignAgentToProcess(@PathVariable("agentId") Long agentId, @PathVariable("procedureId") Long procedureId){
+    public ResponseEntity<String> assignAgentToProcess(@PathVariable("agentId") Long agentId,
+                                                       @PathVariable("procedureId") Long procedureId){
         agentService.AssignProceduretoAnAgent(agentId, procedureId);
         return ResponseEntity.ok("Procédure assignée avec succès à l'agent avec l'ID : " + agentId);
     }
@@ -37,6 +38,11 @@ public class AgentController {
     @GetMapping(value="recover_process_assigned/{agentId}")
     public void recoverProcessAssigned(@PathVariable("agentId") Long agentId){
         agentService.getProceduresAssigned(agentId);
+    }
+
+    @GetMapping("/count")
+    public long getTotalAgents() {
+        return agentService.getTotalAgents();
     }
 
     /*

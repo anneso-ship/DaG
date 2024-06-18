@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class AdministratorService {
@@ -37,6 +38,10 @@ public class AdministratorService {
                 throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED);
             }
         }
+    }
+
+    public List<Administrator> getAllAdministrators() {
+        return this.administratorRepository.findAll();
     }
 
 

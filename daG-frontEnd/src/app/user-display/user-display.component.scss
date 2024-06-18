@@ -3,16 +3,16 @@ table{
     border-collapse: collapse;
     margin-left: 7.5%;
     margin-right: 7.5%;
-    border-radius: 20px 20px 20px 20px;
     width: 85%;
     font-size: 22px;
+    background-color: white;
 }
 
 .firstLine{
     background-color: #3e123e;
     font-size: 20px;
     color: white;
-    border: 5px solid white;
+    border: 2px solid white;
     td{ border: 5px solid white; }
 }
 th, td{
@@ -36,8 +36,9 @@ input{
 }
 .user-details {
     background-color: #f9f9f9;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 3px solid white;
     margin-top: 5%;
     width: 70%;
     margin-left: 15%;

@@ -41,6 +41,10 @@ public class UserService {
         }
     }
 
+    public long getTotalUser() {
+        return userRepository.count();
+    }
+
     public List<User> getAllUser() {
         return this.userRepository.findAll();
     }

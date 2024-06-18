@@ -24,6 +24,11 @@ public class UserController {
         userService.createUser(user);
     }
 
+    @GetMapping("/count")
+    public long getTotalAgents() {
+        return userService.getTotalUser();
+    }
+
     //Afficher les utilisateurs
     @GetMapping(value= "get_users_details")
     public List<User> getAllUsers(){

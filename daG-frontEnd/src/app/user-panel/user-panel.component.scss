@@ -1,5 +1,6 @@
 
 
+
 .row{
     margin: 0 auto;
     background-repeat : no-repeat;
@@ -20,14 +21,23 @@
     right: 0;
     overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
     height:100%;
-    
-    border: 1px solid #c2d7ff;
+   
     text-align: center;
-    background-color: #c2d7ff;
     height: 100vh;
     font-size: 25px;
-    color:white;
+    color:#616161;
 }
+
+li:hover{
+  background-color: #c2d7ff; /* Couleur de surlignage */
+  padding: 0.5em 1em; /* Ajout de l'espace autour du texte */
+  border-radius: 10px; /* Bords arrondis */
+  
+  //display: inline-block; /* Pour que le padding et le border-radius fonctionnent correctement */
+  //box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
+  color:#002D44;
+}
+
 .col-md-9{
    
     margin: 0 auto;
@@ -41,10 +51,7 @@ ul{
 
   list-style-type: none; /* Enlever les puces des listes */
 }
-li:hover{
 
-  color:#002D44;
-}
 
 li{
   text-align: left;
@@ -62,7 +69,7 @@ img{
 }
 
 p{
-color: white;
+color:#616161;;
 font-size: 30px;
 text-align: center;
 font-weight: bold;

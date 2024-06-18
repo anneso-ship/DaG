@@ -18,6 +18,9 @@ import { PanelAdministratorComponent } from './panel-administrator/panel-adminis
 import { AgentPanelComponent } from './agent-panel/agent-panel.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { ProceduresListComponent } from './procedures-list/procedures-list.component';
+import { ProceduresAssignedComponent } from './procedures-assigned/procedures-assigned.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+
 
 const routes: Routes = [
   {path: '', component:WelcomeComponent},
@@ -37,7 +40,9 @@ const routes: Routes = [
   {path: 'Admin-Dashboard', component:PanelAdministratorComponent},
   {path: 'Moderator-Dashboard', component:AgentPanelComponent},
   {path: 'User-Dashboard', component:UserPanelComponent},
-  {path:'ProceduresDisplay', component:ProceduresListComponent } 
+  {path:'ProceduresDisplay', component:ProceduresListComponent },
+  {path:'Procedure-Assigned', component:ProceduresAssignedComponent},
+  {path: 'stats', component:AnalyticsComponent}
 ];
 
 @NgModule({

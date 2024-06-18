@@ -21,7 +21,7 @@
             <p>         <strong>Date Demande : </strong>{{ procedure.dateDemande | date }}</p>
             <p>         <strong>Status : </strong>{{ procedure.status }}</p>
             <p>         <strong>Documents Scannés : </strong>{{ procedure.documentsScannes.join(', ') }}</p>
-            
+            <br>
             <!-- Affichage des informations du demandeur (utilisateur) -->
             <!--<p>Demandeur:</p>
             <ul> 
@@ -44,6 +44,7 @@
 
 <table>
     <thead class="firstLine">
+        <td>Id</td>
         <td>Nom</td>
         <td>Prénom</td>
         <td>Adresse mail</td>
@@ -51,6 +52,7 @@
         <td></td>
     </thead>
     <tr *ngFor="let ag of agent$ | async "  >
+        <td>{{ag.id}}</td>
         <td>{{ag.name}}</td>
         <td>{{ag.firstName}}</td>
         <td>{{ag.email}}</td>

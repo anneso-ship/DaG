@@ -7,11 +7,13 @@
     
     <p><strong> N° identifiant : </strong> {{ selectedProcedure.id }}</p>
     <p><strong> Type : </strong> {{ selectedProcedure.type }}</p>
+    <p><strong> Description : </strong> {{ selectedProcedure.description }}</p>
     <p><strong> Etat d'avancement : </strong> {{ selectedProcedure.status }}</p>
     <p><strong> Date de demande : </strong> {{ selectedProcedure.dateDemande | date }}</p>
+    <p><strong> Date d'assignation :</strong> {{selectedProcedure.dateAssignation | date}}</p>
     <p><strong> Documents Scannés : </strong>{{ selectedProcedure.documentsScannes.join(', ') }}</p>
     <br><br>
-    <h4>Utilisateur à l'origine de la procédure</h4><br>
+    <!--<h4>Utilisateur à l'origine de la procédure</h4><br>
     <ul>
         <li>
             <p>         <strong>Nom :</strong> {{selectedProcedure.demandeur.name}}</p>
@@ -32,7 +34,7 @@
             <p>         <strong>Date d'embauche :</strong> {{selectedProcedure.agent.dateEmbauche | date}}</p>
             <p>         <strong>Département : </strong>{{ selectedProcedure.agent.departement}}</p>
         </li>
-    </ul>
+    </ul>-->
     
     <button class="btn btn-outline-danger" style="width:19.5%; margin-left: 80%;margin-right: 0.5%;font-size: 20px;" (click)="onBack()">Masquer</button>
 </div>
@@ -46,7 +48,7 @@
         <td></td>
     </thead>
     <tr *ngFor="let process of procedure$ | async "  >
-        <td>{{process.id}}</td>
+        <td>{{process.code}}</td>
         <td>{{process.type}}</td>
         <td>{{process.dateDemande}}</td>
         <td><strong style="color:red;"><i>{{process.status}}</i></strong></td>

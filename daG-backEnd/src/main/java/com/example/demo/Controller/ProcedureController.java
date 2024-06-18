@@ -22,6 +22,42 @@ public class ProcedureController {
         return procedureService.createProcedure(procedure);
     }
 
+    @GetMapping("/count")
+    public long getTotalProcess() {
+        return procedureService.getTotalProcedure();
+    }
+
+    @GetMapping("/count/en_attente")
+    public Long getCountOfEnAttenteProcedures() {
+        return procedureService.getCountOfEnAttenteProcedures();
+    }
+
+    @GetMapping("/count/en_cours")
+    public Long getCountOfEnCoursProcedures() {
+        return procedureService.getCountOfEnCoursProcedures();
+    }
+
+    @GetMapping("/count/terminee")
+    public Long getCountOfTerminatedProcedures() {
+        return procedureService.getCountOfTerminatedProcedures();
+    }
+
+    @GetMapping("/count/rejetee")
+    public Long getCountOfRejeteeProcedures() {
+        return procedureService.getCountOfRejeteeProcedures();
+    }
+
+    @GetMapping("/count/assigned")
+    public Long getCountOfAssignedProcedures() {
+        return procedureService.getCountOfAssignedProcedures();
+    }
+
+    @GetMapping("/count/unassigned")
+    public Long getCountOfUnassignedProcedures() {
+        return procedureService.getCountOfUnassignedProcedures();
+    }
+
+
     @GetMapping(value = "get_all_process_details")
     public List<Procedure> getAllProcedures() {
         return procedureService.getAllProcedures();

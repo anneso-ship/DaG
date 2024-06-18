@@ -27,6 +27,8 @@ import { PanelAdministratorComponent } from './panel-administrator/panel-adminis
 import { AgentPanelComponent } from './agent-panel/agent-panel.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { ProceduresListComponent } from './procedures-list/procedures-list.component';
+import { ProceduresAssignedComponent } from './procedures-assigned/procedures-assigned.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { ProceduresListComponent } from './procedures-list/procedures-list.compo
     PanelAdministratorComponent,
     AgentPanelComponent,
     UserPanelComponent,
-    ProceduresListComponent
+    ProceduresListComponent,
+    ProceduresAssignedComponent,
+    AnalyticsComponent
 
   ],
   imports: [
