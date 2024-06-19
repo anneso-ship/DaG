@@ -1,12 +1,8 @@
 import { Component, OnInit ,Input, ElementRef, ViewChild} from '@angular/core';
 import { Agent } from '../model/agent.model';
 import { AgentService } from '../services/agent.service';
-
-import { Router } from '@angular/router';
-
-import { BehaviorSubject, Observable, combineLatest, of } from 'rxjs';
-import { map, filter} from 'rxjs/operators';
-import { FormControl, FormBuilder } from '@angular/forms';
+import { Observable} from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 
@@ -26,6 +22,8 @@ export class AgentDisplayComponent implements OnInit {
 
     @ViewChild('agentDetails') agentDetails!: ElementRef;
 
+    searchTerm: string = '';
+
 
   constructor(private agentService: AgentService) { }
 
@@ -43,6 +41,16 @@ export class AgentDisplayComponent implements OnInit {
 
   onBack(): void {
     this.selectedAgent = null;
+  }
+
+  //Filtrage dans la barre de recherche en fonction du nom et du prénom
+  applyFilter(): void {
+    this.agent$ = this.agentService.getAllAgent().pipe(
+      map(agents => agents.filter(agent =>
+        agent.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        agent.firstName.toLowerCase().includes(this.searchTerm.toLowerCase())
+      ))
+    );
   }
 
 

@@ -1,26 +1,43 @@
 
-<input type="text" class="form-control" placeholder="Filtre de Recherche ...." aria-label="Recipient's username with two button addons">
+<h1>Informations sur les Agents</h1>
+<input type="text" class="form-control" placeholder="Filtre de Recherche ...." [(ngModel)]="searchTerm" (keyup)="applyFilter()">
+<br>
+
+<div class="presentation">
+    Bienvenue sur la page de détails sur les agents. Ici, vous trouverez des informations complètes et à jour sur chacun de nos agents, y compris leurs coordonnées, rôles, départements et les procédures qui leur sont assignées. 
+    Cette page vous permet de gérer efficacement les ressources humaines et de suivre les activités de chaque agent.
+</div>
 
 <div *ngIf="selectedAgent" class="agent-details">
-    <h2>Détails de l'agent</h2>
+    <div class="title">
+        <h2>Informations sur l'agent</h2>
+    </div>
     
-    <p style="margin-top: 5%;"><strong>Nom:</strong> {{ selectedAgent.name }}</p>
-    <p><strong> Prénom : </strong> {{ selectedAgent.firstName }}</p>
-    <p><strong> Email : </strong> {{ selectedAgent.email }}</p>
-    <p><strong> Téléphone : </strong> {{ selectedAgent.phoneNumber }}</p>
-    <p><strong> Département : </strong> {{ selectedAgent.departement }}</p>
-    <p><strong> Date d'embauche : </strong> {{ selectedAgent.dateEmbauche | date }}</p>
-    <p><strong> Role : </strong>{{selectedAgent.role}}</p>
+    <div class="row" style="margin-top: 5%; width: 90%; margin-left: 5%;">
+        <div class="col-md-6">
+            <p><strong>Nom:</strong> {{ selectedAgent.name }}</p>
+            <p><strong> Email : </strong> {{ selectedAgent.email }}</p>
+            <p><strong> Date d'embauche : </strong> {{ selectedAgent.dateEmbauche | date }}</p>
+        </div>
+        <div class="col-md-6" >
+            <p><strong> Prénom : </strong> {{ selectedAgent.firstName }}</p>
+            <p><strong> Téléphone : </strong> {{ selectedAgent.phoneNumber }}</p>
+            <p><strong> Département : </strong> {{ selectedAgent.departement }}</p>
+        </div>
+    </div>
+
     <br><br>
+
     <h4>Procedures Assignées</h4>
     <br>
     <ul>
-        <li *ngFor="let procedure of selectedAgent.proceduresAssignees">
-            <p>         <strong>Identifiant procédure :</strong> {{procedure.id}}</p>
-            <p>         <strong>Type : </strong>{{ procedure.type }}</p>
-            <p>         <strong>Date Demande : </strong>{{ procedure.dateDemande | date }}</p>
-            <p>         <strong>Status : </strong>{{ procedure.status }}</p>
-            <p>         <strong>Documents Scannés : </strong>{{ procedure.documentsScannes.join(', ') }}</p>
+        <li *ngFor="let procedure of selectedAgent.proceduresAssignees" style="width: 90%; margin-left: 5%;">
+            <p><strong>Identifiant procédure :</strong> {{procedure.code}}</p>
+            <p><strong>Type : </strong>{{ procedure.type }}</p>
+            <p><strong>Date Demande : </strong>{{ procedure.dateDemande | date }}</p>
+            <p><strong>Description :</strong> {{procedure.description}}</p>
+            <p><strong>Status : </strong>{{ procedure.status }}</p>
+            <p><strong>Documents Scannés : </strong>{{ procedure.documentsScannes.join(', ') }}</p>
             <br>
             <!-- Affichage des informations du demandeur (utilisateur) -->
             <!--<p>Demandeur:</p>
@@ -42,7 +59,7 @@
 
 
 
-<table>
+<table style="border: 20px solid white;">
     <thead class="firstLine">
         <td>Id</td>
         <td>Nom</td>
@@ -57,9 +74,8 @@
         <td>{{ag.firstName}}</td>
         <td>{{ag.email}}</td>
         <td>{{ag.departement}}</td>
-        <td><button style=" display: block; margin: 0 auto;text-align: center; font-size: 20px;" class="btn btn-outline-primary" (click)="onViewAgent(ag)">Consulter informations</button></td>
+        <td><button style=" display: block; margin: 0 auto;text-align: center; font-size: 20px;" class="btn btn-outline-primary" (click)="onViewAgent(ag)">Consulter</button></td>
     </tr>
-  
 </table>
 
 

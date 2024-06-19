@@ -1,19 +1,54 @@
+<h1>Informations sur les procédures administratives</h1>
+<input type="text" class="form-control" placeholder="Filtre de Recherche ...." [(ngModel)]="searchTerm" (keyup)="applyFilter()">
 
-<input type="text" class="form-control" placeholder="Filtre de Recherche ...." aria-label="Recipient's username with two button addons">
+<div class="presentation">
+    Nous vous souhaitons la bienvenue sur la page détaillée des procédures administratives.
+    Cette section vous offre une vue exhaustive de chaque processus traité sur la plateforme, 
+    y compris leur identifiant, type, date de demande, statut actuel, ainsi que les documents 
+    scannés associés. Utilisez cette ressource pour suivre efficacement l'évolution et la gestion
+    de chaque procédure en cours.
+</div>
 
 <div *ngIf="selectedProcedure" class="procedure-details">
     
-    <br><h2>Informations sur la procédure</h2><br><br>
+    <div class="title"><h2>Informations sur la procédure</h2></div>
+
+    <div style="margin-top: 5%; width: 90%; margin-left: 5%;">
+            <p><strong> Numéro d'Identification : </strong> {{ selectedProcedure.code }}</p>
+            <p><strong> Type : </strong> {{ selectedProcedure.type }}</p>
+            <p><strong> Description : </strong> {{ selectedProcedure.description }}</p>
+            <p><strong> Documents Scannés : </strong>{{ selectedProcedure.documentsScannes.join(', ') }}</p>
+            <p><strong> Date de demande : </strong> {{ selectedProcedure.dateDemande | date }}</p>
+            <p><strong> Date d'assignation :</strong> {{selectedProcedure.dateAssignation | date}}</p>
+            <p><strong> Etat d'avancement : </strong> {{ selectedProcedure.status }}</p>
+    </div>
     
-    <p><strong> N° identifiant : </strong> {{ selectedProcedure.id }}</p>
-    <p><strong> Type : </strong> {{ selectedProcedure.type }}</p>
-    <p><strong> Description : </strong> {{ selectedProcedure.description }}</p>
-    <p><strong> Etat d'avancement : </strong> {{ selectedProcedure.status }}</p>
-    <p><strong> Date de demande : </strong> {{ selectedProcedure.dateDemande | date }}</p>
-    <p><strong> Date d'assignation :</strong> {{selectedProcedure.dateAssignation | date}}</p>
-    <p><strong> Documents Scannés : </strong>{{ selectedProcedure.documentsScannes.join(', ') }}</p>
-    <br><br>
-    <!--<h4>Utilisateur à l'origine de la procédure</h4><br>
+    
+    <button class="btn btn-outline-danger" style="width:19.5%; margin-left: 80%;margin-right: 0.5%;font-size: 20px;" (click)="onBack()">Masquer</button>
+</div>
+
+<table style="border: 20px solid white;">
+    <thead class="firstLine">
+        <td>N° identifiant</td>
+        <!--<td>Type</td>-->
+        <td>Date de demande</td>
+        <td>Etat d'avancement</td>
+        <td></td>
+    </thead>
+    <tr *ngFor="let process of procedure$ | async "  >
+        <td>{{process.code}}</td>
+        <!--<td>{{process.type}}</td>-->
+        <td>{{process.dateDemande}}</td>
+        <td><strong style="color:red;"><i>{{process.status}}</i></strong></td>
+        <td><button style=" display: block; margin: 0 auto;text-align: center;font-size: 20px;" class="btn btn-outline-secondary" (click)="onViewProcedure(process)">Consulter</button></td>
+    </tr>
+  
+</table>
+
+<br><br><br>
+
+
+ <!--<h4>Utilisateur à l'origine de la procédure</h4><br>
     <ul>
         <li>
             <p>         <strong>Nom :</strong> {{selectedProcedure.demandeur.name}}</p>
@@ -35,26 +70,3 @@
             <p>         <strong>Département : </strong>{{ selectedProcedure.agent.departement}}</p>
         </li>
     </ul>-->
-    
-    <button class="btn btn-outline-danger" style="width:19.5%; margin-left: 80%;margin-right: 0.5%;font-size: 20px;" (click)="onBack()">Masquer</button>
-</div>
-
-<table>
-    <thead class="firstLine">
-        <td>N° identifiant</td>
-        <td>Type</td>
-        <td>Date de demande</td>
-        <td>Etat d'avancement</td>
-        <td></td>
-    </thead>
-    <tr *ngFor="let process of procedure$ | async "  >
-        <td>{{process.code}}</td>
-        <td>{{process.type}}</td>
-        <td>{{process.dateDemande}}</td>
-        <td><strong style="color:red;"><i>{{process.status}}</i></strong></td>
-        <td><button class="btn btn-outline-danger" style=" display: block; margin: 0 auto;text-align: center;font-size: 20px;" class="btn btn-outline-primary" (click)="onViewProcedure(process)">Consulter informations</button></td>
-    </tr>
-  
-</table>
-
-<br><br><br>

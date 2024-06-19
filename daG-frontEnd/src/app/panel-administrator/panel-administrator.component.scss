@@ -22,7 +22,7 @@
     height:100%;
     
    // border: 1px solid #3e123e;
-    text-align: center;
+  
     background-color: #7431FA;
     height: 100vh;
     font-size: 25px;
@@ -42,19 +42,19 @@ ul{
   list-style-type: none; /* Enlever les puces des listes */
 }
 li:hover{
-  background-color: white; /* Couleur de surlignage */
-  padding: 0.5em 1em ; /* Ajout de l'espace autour du texte */
-  border-radius: 40px; /* Bords arrondis */
-  //display: inline-block; /* Pour que le padding et le border-radius fonctionnent correctement */
-  //box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
+  background-color: white;
+  padding: 10px;
   color:#7431FA;
+  border-radius: 20px;
 }
 
 li{
   text-align: left;
-  margin: 40px  ; /* Espacement entre les éléments de la liste */
+  margin: 25px 0; /* Espacement entre les éléments de la liste */
   
+  left:0;
 }
+
 
 
 img{

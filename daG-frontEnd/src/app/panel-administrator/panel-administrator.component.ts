@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelAdministratorComponent implements OnInit {
 
-  activeComponent: string = 'agentInfoList'; // Composant par défaut
+  activeComponent: string = 'agent-info-list'; // Composant par défaut
 
 
 

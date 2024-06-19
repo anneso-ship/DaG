@@ -1,3 +1,24 @@
+h1{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 4%;
+}
+.presentation{
+    margin-top: 1%;
+    font-size: 20px;
+    width: 95%;
+    margin-left: 2.5%;
+    text-align: center;
+}
+.title{
+    background-color: #504499;
+    width: 100%;
+    border-radius: 25px;
+    padding: 30px;
+    margin: 0; /* Supprime les marges */
+    font-weight:bold;
+    color:white;
+}
 table{
     margin-top: 80px;
     border-collapse: collapse;
@@ -9,12 +30,12 @@ table{
     background-color: white;
 }
 .firstLine{
-    background-color: #3e123e;
-    font-size: 20px;
+    background-color: #504499;
+    font-size: 25px;
     color: white;
-    border: 2px solid white;
+    border:1px solid white;
     td{
-          border: 5px solid white;
+          border: 1px solid white;
     }
 }
 th, td{
@@ -26,7 +47,7 @@ th, td{
 tr:hover{
     background-color: #ebebeb;
     td{
-        border: 5px solid rgb(255,255,255);
+        border: 1px solid rgb(255,255,255);
 
     }
 }
@@ -46,7 +67,7 @@ h2{
 .procedure-details {
     background-color: #f9f9f9;
     padding: 20px;
-    border: 1px solid white;
+    border-radius: 25px;
     box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1);
     margin-top: 5%;
     width: 70%;
@@ -59,4 +80,11 @@ ul{
     list-style-type: none; /* Enlever les puces des listes */
 }
 
-h4{text-decoration: underline;}
+h4{
+    font-weight: bold;
+    padding: 10px;
+    color: #504499;
+    border: 1px solid #504499;
+    text-align: center;
+    border-radius: 25px;
+}

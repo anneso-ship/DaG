@@ -2,6 +2,7 @@ import { Component, OnInit , Input , ViewChild, ElementRef} from '@angular/core'
 import { Procedure } from '../model/procedure';
 import { Observable} from 'rxjs';
 import { ProcedureService } from '../services/procedure.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-procedures-list',
@@ -18,6 +19,8 @@ export class ProceduresListComponent implements OnInit {
   selectedProcedure: Procedure | null = null;
 
   procedure$! : Observable<Procedure[]>;
+
+  searchTerm: string = '';
 
   
 
@@ -38,5 +41,14 @@ export class ProceduresListComponent implements OnInit {
         this.selectedProcedure = null;
       }
 
+     
+      applyFilter(): void {
+        this.procedure$ = this.procedureService.getAllProcedures().pipe(
+          map((procedures: Procedure[]) => procedures.filter(procedure =>
+            procedure.code.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+            procedure.status.toLowerCase().includes(this.searchTerm.toLowerCase())
+          ))
+        );
+      }
 
 }
