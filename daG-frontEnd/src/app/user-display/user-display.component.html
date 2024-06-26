@@ -28,16 +28,18 @@
     <h4>Procedures Enclenchées :</h4>
     <br>
     <ul>
-        <li *ngFor="let procedure of selectedUser.procedures" style="width: 90%; margin-left: 5%;">
-            <p><strong>         Identifiant procédure :</strong> {{procedure.id}}</p>
-            <p><strong>         Type : </strong>{{ procedure.type }}</p>
-            <p><strong>         Date Demande : </strong>{{ procedure.dateDemande | date }}</p>
-            <p><strong>         Status : </strong>{{ procedure.status }}</p>
-            <p><strong>         Documents Scannés : </strong>{{ procedure.documentsScannes.join(', ') }}</p>
+        <li *ngFor="let procedure of selectedUser.procedures" >
+            <br>
+            <p><strong>Identifiant procédure :</strong> {{procedure.code}}</p>
+            <p><strong>Type : </strong>{{ procedure.type }}</p>
+            <p><strong>Description : </strong>{{ procedure.description }}</p>
+            <p><strong>Date Demande : </strong>{{ procedure.dateDemande | date }}</p>
+            <p><strong>Status : </strong>{{ procedure.status }}</p>
+            <p><strong>Documents Scannés : </strong>{{ procedure.documentsScannes.join(', ') }}</p>
             <br>
         </li>
     </ul>
-    
+    <br><br>
     <button class="btn btn-outline-danger" style="width:19.5%; margin-left: 80%;margin-right: 0.5%; font-size: 20px;" (click)="onBack()">Masquer</button>
 </div>
 

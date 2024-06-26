@@ -12,6 +12,9 @@ administratorRepository.save(new Administrator("Bamoni", "Anne Sophie", "anneSop
 		User user8 = new User("Ossou", "Jean-Pierre", "ossouJeanPierre@gmail.com", "08 44 33 22", encoder.encode("user8"), UsersType.USER.name(), 'M', new Date(89, 1, 25), null);
 		User user9 = new User("Edjanga", "Patricia", "edjangaPatricia@yahoo.fr", "06 55 44 33", encoder.encode("user9"), UsersType.USER.name(), 'F', new Date(94, 11, 15), null);
 		User user10 = new User("Manga", "Didier", "mangaDidier@hotmail.com", "05 22 11 00", encoder.encode("user10"), UsersType.USER.name(), 'M', new Date(82, 3, 5), null);
+		User user11 = new User("Nguema", "Paul", "nguemaPaul@gmail.com", "09 77 66 55", encoder.encode("user11"), UsersType.USER.name(), 'M', new Date(90, 5, 17), null);
+		User user12 = new User("Biyoghé", "Marie-Louise", "biyogheMarieLouise@yahoo.fr", "07 66 55 44", encoder.encode("user12"), UsersType.USER.name(), 'F', new Date(87, 8, 3), null);
+		User user13 = new User("Ono", "Serge", "onoSerge@hotmail.com", "04 33 22 11", encoder.encode("user13"), UsersType.USER.name(), 'M', new Date(95, 10, 20), null);
 
 		/********** Sauvegarde des utilisateurs **********/
 		userRepository.saveAll(Arrays.asList(user1, user2, user3, user4, user5, user6, user7, user8, user9, user10));
@@ -38,6 +41,11 @@ administratorRepository.save(new Administrator("Bamoni", "Anne Sophie", "anneSop
 		Agent agent7 = new Agent("Traore", "Kadi", "kadiTraore@mairie.fr", "06 99 88 77", encoder.encode("agent7"), UsersType.MODERATOR.name(), "Département 7", new Date(), null);
 		Agent agent8 = new Agent("Ouattara", "Salimata", "salimataOuattara@mairie.fr", "07 44 33 22", encoder.encode("agent8"), UsersType.MODERATOR.name(), "Département 8", new Date(), null);
 
+		Agent agent9 = new Agent("Mounguengui", "François", "francoisMounguengui@mairie.fr", "07 55 66 77", encoder.encode("agent9"), UsersType.MODERATOR.name(), "Département 9", new Date(), null);
+		Agent agent10 = new Agent("Yembi", "Clarisse", "clarisseYembi@mairie.fr", "06 88 99 00", encoder.encode("agent10"), UsersType.MODERATOR.name(), "Département 10", new Date(), null);
+		Agent agent11 = new Agent("Missandou", "Jacques", "jacquesMissandou@mairie.fr", "06 11 22 33", encoder.encode("agent11"), UsersType.MODERATOR.name(), "Département 11", new Date(), null);
+
+
 		/********** Sauvegarde des agents **********/
 		agentRepository.saveAll(Arrays.asList(agent1, agent2, agent3, agent4, agent5, agent6, agent7, agent8, agent9, agent10));
 
@@ -54,6 +62,9 @@ administratorRepository.save(new Administrator("Bamoni", "Anne Sophie", "anneSop
 		Procedure procedure10 = new Procedure("DEMANDE","Demande d'acte de naissance", new Date(), null, Status.REJETEE.name(), procedureService.RandomGeneratorNumber(), user10, null, Arrays.asList("document1.pdf", "document2.pdf", "document3.pdf"));
 		Procedure procedure11 = new Procedure("INFORMATISATION", "Informatiser un acte de naissances existant",new Date(), null, Status.REJETEE.name(), procedureService.RandomGeneratorNumber(), user2, null, Arrays.asList("document1.pdf", "document2.pdf", "document3.pdf", "document4.pdf"));
 		Procedure procedure12 = new Procedure("DEMANDE","Demande d'acte de naissance", new Date(124, 2, 1), null, Status.TERMINEE.name(), procedureService.RandomGeneratorNumber(), user3, null, Arrays.asList("document1.pdf", "document2.pdf", "document3.pdf"));
+		Procedure procedure13 = new Procedure("DEMANDE", "Demande de certificat de résidence", new Date(), null, Status.EN_ATTENTE.name(), procedureService.RandomGeneratorNumber(), user11, null, Arrays.asList("document1.pdf", "document2.pdf"));
+		Procedure procedure14 = new Procedure("RENOUVELLEMENT", "Renouvellement de carte d'identité", new Date(), null, Status.EN_COURS.name(), procedureService.RandomGeneratorNumber(), user12, null, Arrays.asList("document1.pdf", "document2.pdf", "document3.pdf"));
+		Procedure procedure15 = new Procedure("MODIFICATION", "Modification d'un acte de naissance", new Date(), null, Status.EN_COURS.name(), procedureService.RandomGeneratorNumber(), user13, null, Arrays.asList("document1.pdf", "document2.pdf", "document3.pdf", "document4.pdf"));
 
 		/********** Sauvegarde des procédures **********/
 		procedureRepository.saveAll(Arrays.asList(procedure1, procedure2, procedure3, procedure4, procedure5, procedure6, procedure7, procedure8, procedure9, procedure10, procedure11, procedure12));

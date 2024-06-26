@@ -61,8 +61,7 @@ public class ProcedureService {
         String LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
         String UPPERCASE_LETTERS = LOWERCASE_LETTERS.toUpperCase();
         String NUMBERS = "0123456789";
-        String SPECIAL_CHARACTERS = "!@#$%^&*_=+-/";
-        String ALL_CHARACTERS = LOWERCASE_LETTERS + UPPERCASE_LETTERS + NUMBERS + SPECIAL_CHARACTERS;
+        String ALL_CHARACTERS = LOWERCASE_LETTERS + UPPERCASE_LETTERS + NUMBERS ;
         SecureRandom RANDOM = new SecureRandom();
 
         StringBuilder sb = new StringBuilder();

@@ -48,7 +48,10 @@ export class AgentDisplayComponent implements OnInit {
     this.agent$ = this.agentService.getAllAgent().pipe(
       map(agents => agents.filter(agent =>
         agent.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        agent.firstName.toLowerCase().includes(this.searchTerm.toLowerCase())
+        agent.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        (agent.proceduresAssignees && agent.proceduresAssignees.some(procedure =>
+          procedure.code.toLowerCase().includes(this.searchTerm.toLowerCase())
+        ))
       ))
     );
   }

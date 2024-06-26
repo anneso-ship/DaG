@@ -9,14 +9,15 @@
     <hr>
     <br>
         <ul>
-            <li><a (click)="activeComponent = 'agent-info-list'" routerLinkActive="active">Liste des Agents</a></li>
-            <li><a (click)="activeComponent = 'user-info-list'" routerLinkActive="active">Liste des Utilisateurs</a></li>
-            <li><a (click)="activeComponent='ProceduresDisplay'" routerLinkActive="active">Liste des procédures</a></li>
-            <li><a (click)="activeComponent='birthCertificateDisplay'" routerLinkActive="active">Liste des actes de naissances</a></li>
-            <li><a (click)="activeComponent = 'Procedure-Assigned'" routerLinkActive="active">Assignation procédures</a></li>
-            <li><a (click)="activeComponent = 'stats'" routerLinkActive="active">Statistiques</a></li>
-            <li>Mon profil</li>
-            <li>Déconnexion</li>
+            <a (click)="activeComponent = 'agent-info-list'" routerLinkActive="active"><li>Liste des Agents</li></a>
+            <a (click)="activeComponent = 'user-info-list'" routerLinkActive="active"><li>Liste des Utilisateurs</li></a>
+            <a (click)="activeComponent='ProceduresDisplay'" routerLinkActive="active"><li>Liste des procédures</li></a>
+            <a (click)="activeComponent='birthCertificateDisplay'" routerLinkActive="active"><li>Liste des actes de naissances</li></a>
+            <a (click)="activeComponent = 'Procedure-Assigned'" routerLinkActive="active"><li>Assignation procédures</li></a>
+            <a (click)="activeComponent = 'stats'" routerLinkActive="active"><li>Statistiques</li></a>
+            <a href="#"><li>Notifications</li></a>
+            <li><a href="#">Mon profil</a></li>
+            <li><a href="#">Déconnexion</a></li>
             
 
           </ul>

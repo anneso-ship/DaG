@@ -47,7 +47,10 @@ export class UserDisplayComponent implements OnInit {
     this.user$ = this.userService.getAllUsers().pipe(
       map((users: User[]) => users.filter((user: User) =>
         user.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        user.firstName.toLowerCase().includes(this.searchTerm.toLowerCase())
+        user.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        (user.procedures && user.procedures.some(procedure =>
+          procedure.code.toLowerCase().includes(this.searchTerm.toLowerCase())
+        ))
       ))
     );
   }

@@ -21,7 +21,7 @@ table{
     background-color: white;
 }
 .title{
-    background-color: dodgerblue;
+    background-color: rgb(30, 144, 255);
     width: 100%;
     color:white;
     border-radius: 25px;
@@ -30,7 +30,7 @@ table{
     font-weight:bold;
 }
 .firstLine{
-    background-color: dodgerblue;
+    background-color: rgb(30, 144, 255);
     font-weight: bold;
     font-size: 25px;
     color: white;
@@ -91,4 +91,12 @@ h4{
     border: 1px solid dodgerblue;
     text-align: center;
     border-radius: 25px;
+}
+li{
+    list-style-type: none; /* Enlever les puces des listes */
+    box-shadow: 0px 0px 5px 5px rgba(30, 144, 255, 0.1);
+    width: 85%;
+    margin-left: 4%;
+    padding-left: 15px;
+    margin-top: 20px;
 }

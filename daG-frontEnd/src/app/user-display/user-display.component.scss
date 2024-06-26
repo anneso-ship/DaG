@@ -30,7 +30,7 @@ table{
 }
 
 .firstLine{
-    background-color: #a5a5dc;
+    background-color: rgb(165, 165, 220);
     font-size: 20px;
     font-size: 25px;
     color: white;
@@ -57,8 +57,8 @@ input{
     font-size: 22px;
 }
 .user-details {
-    background-color: #f9f9f9;
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 25px;
     margin-top: 5%;
@@ -68,7 +68,14 @@ input{
     p{font-size: 22px;}
 }
 
-ul{list-style-type: none; /* Enlever les puces des listes */}
+li{
+    list-style-type: none; /* Enlever les puces des listes */
+    box-shadow: 0px 0px 5px 5px rgba(165, 165, 220, 0.2);
+    width: 85%;
+    margin-left: 4%;
+    padding-left: 15px;
+    margin-top: 20px;
+}
 
 h2{
     text-align: center;

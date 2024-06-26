@@ -31,6 +31,7 @@ public class Procedure {
 
     private String status;
 
+    @Column(unique = true)
     private String code;
 
     @ManyToOne(fetch = FetchType.EAGER) // Chargement explicite
